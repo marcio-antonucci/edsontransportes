@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edson Transportes - Cotação BoraUai</title>
+    <style>
+        :root {
+            --azul-principal: #0F4C81;
+            --laranja-destaque: #FF7A00;
+            --cinza-fundo: #F4F6F9;
+            --texto-escuro: #1A2530;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cinza-fundo);
+            color: var(--texto-escuro);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            margin: 20px 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: var(--azul-principal);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 5px solid var(--laranja-destaque);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 22pt;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 10pt;
+            opacity: 0.9;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .badge-automacao {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 8pt;
+            display: inline-block;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        form {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 10.5pt;
+            color: var(--azul-principal);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 11pt;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--azul-principal);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+        }
+
+        .btn-enviar {
+            background-color: var(--laranja-destaque);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            font-size: 12pt;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+            box-shadow: 0px 4px 12px rgba(255, 122, 0, 0.3);
+            margin-top: 10px;
+        }
+
+        .btn-enviar:hover {
+            background-color: #E06B00;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 8.5pt;
+            color: #718096;
+            border-top: 1px solid #EDF2F7;
+            background: #FAFAFA;
+        }
+
+        .footer strong {
+            color: var(--azul-principal);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Edson Transportes</h1>
+            <p>Viagens & Soluções Executivas</p>
+            <span class="badge-automacao">🤖 Tecnologia Integrada BoraUai</span>
+        </div>
+
+        <form id="formCotacao" onsubmit="enviarCotacao(event)">
+            <div class="form-group">
+                <label for="origem">📍 Local de Origem:</label>
+                <input type="text" id="origem" placeholder="Ex: Aeroporto de Confins" required>
+            </div>
+
+            <div class="form-group">
+                <label for="destino">🏁 Local de Destino:</label>
+                <input type="text" id="destino" placeholder="Ex: Rua Rubi, 171 - Ibirité" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dataHora">📅 Data e Horário do Embarque:</label>
+                <input type="datetime-local" id="dataHora" required>
+            </div>
+
+            <div class="form-group">
+                <label for="passageiros">👥 Número de Passageiros:</label>
+                <select id="passageiros">
+                    <option value="1">1 Passageiro</option>
+                    <option value="2">2 Passageiros</option>
+                    <option value="3">3 Passageiros</option>
+                    <option value="4">4 Passageiros (Capacidade Máxima)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="musica">🎵 Preferência Musical / Som:</label>
+                <select id="musica">
+                    <option value="Sem preferência (Som ambiente)">Sem preferência (Som ambiente)</option>
+                    <option value="Ar-condicionado e Silêncio">Prefiro viagem em silêncio</option>
+                    <option value="Pop / Rock">Pop / Rock</option>
+                    <option value="Sertanejo / MPB">Sertanejo / MPB</option>
+                    <option value="Notícias / Rádio Local">Notícias / Rádio Local</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-enviar">🚖 Solicitar Orçamento via WhatsApp</button>
+        </form>
+
+        <div class="footer">
+            Plataforma homologada por <strong>BoraUai Technologies 2026</strong><br>
+            Condutor Profissional: Edson Wagner | CPF: 066.798.886-62
+        </div>
+    </div>
+
+    <script>
+        function enviarCotacao(event) {
+            event.preventDefault();
+
+            // Captura os dados digitados pelo usuário
+            const origem = document.getElementById('origem').value;
+            const destino = document.getElementById('destino').value;
+            const dataHoraRaw = document.getElementById('dataHora').value;
+            const passageiros = document.getElementById('passageiros').value;
+            const musica = document.getElementById('musica').value;
+
+            // Formatação amigável da data e hora
+            const data Opcoes = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+            const dataFormatada = new Date(dataHoraRaw).toLocaleDateString('pt-BR', dataOpcoes);
+
+            // Construção da mensagem estruturada para o WhatsApp
+            const textoMensagem = 
+                `Olá, Edson Wagner! Gostaria de realizar uma cotação de viagem através da plataforma Edson Transportes (BoraUai).\n\n` +
+                `📍 *Origem:* ${origem}\n` +
+                `🏁 *Destino:* ${destino}\n` +
+                `📅 *Data/Hora:* ${dataFormatada}\n` +
+                `👥 *Passageiros:* Até ${passageiros} pessoa(s)\n` +
+                `🎵 *Preferência:* ${musica}\n\n` +
+                `Aguardo o envio do orçamento oficial da rota!`;
+
+            // Codifica o texto para formato URL válida
+            const textoCodificado = encodeURIComponent(textoMensagem);
+
+            // Link direto para o número de atendimento configurado
+            const numeroWhats = "5531994243444"; 
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhats}&text=${textoCodificado}`;
+
+            // Redireciona o usuário para o aplicativo do WhatsApp
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
+</body>
+</html>
