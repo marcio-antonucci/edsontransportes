@@ -139,7 +139,7 @@
         <div class="header">
             <h1>Edson Transportes</h1>
             <p>Viagens & Soluções Executivas</p>
-            <span class="badge-automacao">🤖 Tecnologia Integrada BoraUai</span>
+            <span class="badge-automacao">🤖 Automação Operacional: BoraUai</span>
         </div>
 
         <form id="formCotacao" onsubmit="enviarCotacao(event)">
@@ -169,7 +169,7 @@
             </div>
 
             <div class="form-group">
-                <label for="musica">🎵 Preferência Musical / Som:</label>
+                <label for="musica">🎵 Preferência Musical / Ambiente:</label>
                 <select id="musica">
                     <option value="Sem preferência (Som ambiente)">Sem preferência (Som ambiente)</option>
                     <option value="Ar-condicionado e Silêncio">Prefiro viagem em silêncio</option>
@@ -179,12 +179,12 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn-enviar">🚖 Solicitar Orçamento via WhatsApp</button>
+            <button type="submit" class="btn-enviar">🚖 Enviar Cotação para o WhatsApp</button>
         </form>
 
         <div class="footer">
-            Plataforma homologada por <strong>BoraUai Technologies 2026</strong><br>
-            Condutor Profissional: Edson Wagner | CPF: 066.798.886-62
+            Plataforma homologada por <strong>BoraUai Technologies</strong><br>
+            Condutor: Edson Wagner | CPF: 066.798.886-62 | Contato: (31) 99526-1120
         </div>
     </div>
 
@@ -200,10 +200,10 @@
             const musica = document.getElementById('musica').value;
 
             // Formatação amigável da data e hora
-            const data Opcoes = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+            const dataOpcoes = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
             const dataFormatada = new Date(dataHoraRaw).toLocaleDateString('pt-BR', dataOpcoes);
 
-            // Construção da mensagem estruturada para o WhatsApp
+            // Construção da mensagem estruturada para o WhatsApp Business da Edson Transportes
             const textoMensagem = 
                 `Olá, Edson Wagner! Gostaria de realizar uma cotação de viagem através da plataforma Edson Transportes (BoraUai).\n\n` +
                 `📍 *Origem:* ${origem}\n` +
@@ -211,16 +211,16 @@
                 `📅 *Data/Hora:* ${dataFormatada}\n` +
                 `👥 *Passageiros:* Até ${passageiros} pessoa(s)\n` +
                 `🎵 *Preferência:* ${musica}\n\n` +
-                `Aguardo o envio do orçamento oficial da rota!`;
+                `Por favor, me envie o valor e a confirmação da rota!`;
 
             // Codifica o texto para formato URL válida
             const textoCodificado = encodeURIComponent(textoMensagem);
 
-            // Link direto para o número de atendimento configurado
-            const numeroWhats = "5531994243444"; 
+            // ALTERADO: Direciona direto para o WhatsApp Business do Motorista Edson Wagner
+            const numeroWhats = "5531995261120"; 
             const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhats}&text=${textoCodificado}`;
 
-            // Redireciona o usuário para o aplicativo do WhatsApp
+            // Redireciona o usuário para o aplicativo do WhatsApp do motorista
             window.open(urlWhatsApp, '_blank');
         }
     </script>
