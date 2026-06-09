@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -156,6 +156,19 @@
             color: var(--texto-principal);
         }
 
+        .footer .placa-destaque {
+            display: inline-block;
+            background-color: #EEEEEE;
+            color: #111111;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 1px solid #CCCCCC;
+            margin: 4px 0;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 1px;
+        }
+
         .footer .neon-text {
             color: var(--verde-principal);
             text-shadow: 0 0 4px rgba(0, 255, 102, 0.4);
@@ -215,6 +228,7 @@
         <div class="footer">
             Plataforma homologada por <strong>BoraUai Technologies</strong><br>
             <strong>Condutor:</strong> Edson Wagner | CPF: 066.798.886-62<br>
+            <strong>Placa do Veículo:</strong> <span class="placa-destaque">RNO8G11</span><br>
             <span class="neon-text">Chave PIX (Celular):</span> (31) 99526-1120<br>
             <span class="neon-text">Contato Comercial:</span> (31) 98950-0120
         </div>
@@ -244,7 +258,7 @@
 
             const textoCodificado = encodeURIComponent(textoMensagem);
 
-            // Link com redirecionamento corrigido para o WhatsApp Comercial (31) 98950-0120
+            // Link com redirecionamento para o WhatsApp Comercial
             const numeroWhats = "5531989500120"; 
             const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhats}&text=${textoCodificado}`;
 
