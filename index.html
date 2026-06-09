@@ -1,3 +1,63 @@
+   <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edson Transportes - Cotação</title>
+    <style>
+        :root {
+            --verde-principal: #00FF66; /* Verde Néon Luminoso */
+            --verde-escuro: #00B347; /* Verde Secundário */
+            --fundo-principal: #121212; /* Fundo Escuro */
+            --fundo-card: #1E1E1E;
+            --texto-principal: #FFFFFF;
+            --texto-secundario: #B3B3B3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fundo-principal);
+            color: var(--texto-principal);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-image: radial-gradient(circle at 50% 0%, #003311 0%, #121212 60%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--fundo-card);
+            border: 1px solid var(--verde-escuro);
+            box-shadow: 0px 0px 20px rgba(0, 255, 102, 0.2);
+            border-radius: 16px;
+            margin: 30px 10px;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: var(--verde-escuro);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 4px solid var(--verde-principal);
+            box-shadow: 0 4px 15px rgba(0, 255, 102, 0.3);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 20pt;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 10pt;
             font-weight: bold;
             letter-spacing: 1.5px;
             color: #FFF;
@@ -10,10 +70,10 @@
             font-size: 8pt;
             display: inline-block;
             margin-top: 12px;
-            border: 1px solid var(--azul-neon);
-            color: var(--azul-neon);
-            text-shadow: 0 0 8px var(--azul-neon);
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+            border: 1px solid var(--verde-principal);
+            color: var(--verde-principal);
+            text-shadow: 0 0 8px var(--verde-principal);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
             font-weight: bold;
             letter-spacing: 1px;
         }
@@ -31,8 +91,8 @@
             font-weight: bold;
             margin-bottom: 6px;
             font-size: 10.5pt;
-            color: var(--rosa-pantera);
-            text-shadow: 0 0 4px rgba(255, 51, 133, 0.4);
+            color: var(--verde-principal);
+            text-shadow: 0 0 4px rgba(0, 255, 102, 0.3);
         }
 
         input, select {
@@ -52,16 +112,16 @@
         }
 
         input:focus, select:focus {
-            border-color: var(--azul-neon);
+            border-color: var(--verde-principal);
             outline: none;
-            box-shadow: 0 0 12px rgba(0, 243, 255, 0.6);
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.5);
             background-color: #333;
         }
 
         .btn-enviar {
             background-color: transparent;
-            color: var(--azul-neon);
-            border: 2px solid var(--azul-neon);
+            color: var(--verde-principal);
+            border: 2px solid var(--verde-principal);
             width: 100%;
             padding: 15px;
             font-size: 12pt;
@@ -70,15 +130,15 @@
             cursor: pointer;
             text-transform: uppercase;
             transition: all 0.3s ease;
-            box-shadow: 0px 0px 10px rgba(0, 243, 255, 0.3), inset 0px 0px 10px rgba(0, 243, 255, 0.2);
+            box-shadow: 0px 0px 10px rgba(0, 255, 102, 0.2), inset 0px 0px 10px rgba(0, 255, 102, 0.1);
             margin-top: 15px;
             letter-spacing: 1px;
         }
 
         .btn-enviar:hover {
-            background-color: var(--azul-neon);
+            background-color: var(--verde-principal);
             color: #000;
-            box-shadow: 0px 0px 20px rgba(0, 243, 255, 0.8);
+            box-shadow: 0px 0px 20px rgba(0, 255, 102, 0.6);
             transform: scale(1.02);
         }
 
@@ -93,12 +153,12 @@
         }
 
         .footer strong {
-            color: var(--rosa-pantera);
+            color: var(--texto-principal);
         }
 
         .footer .neon-text {
-            color: var(--azul-neon);
-            text-shadow: 0 0 4px rgba(0, 243, 255, 0.5);
+            color: var(--verde-principal);
+            text-shadow: 0 0 4px rgba(0, 255, 102, 0.4);
             font-weight: bold;
         }
     </style>
@@ -107,8 +167,8 @@
 
     <div class="container">
         <div class="header">
-            <h1>🐾 Edson Transportes 🐆</h1>
-            <p>Viagens Executivas • Estilo Pantera</p>
+            <h1>🚘 Edson Transportes</h1>
+            <p>Viagens Executivas • Conforto & Segurança</p>
             <span class="badge-automacao">⚡ Automação Operacional: BoraUai</span>
         </div>
 
@@ -174,17 +234,17 @@
             const dataFormatada = new Date(dataHoraRaw).toLocaleDateString('pt-BR', dataOpcoes);
 
             const textoMensagem = 
-                `🐾 *Olá, Edson Wagner!* Gostaria de realizar uma cotação de viagem através da plataforma Edson Transportes (Estilo Pantera / BoraUai).\n\n` +
+                `Olá, Edson Wagner! Gostaria de realizar uma cotação de viagem através da plataforma Edson Transportes (BoraUai).\n\n` +
                 `📍 *Origem:* ${origem}\n` +
                 `🏁 *Destino:* ${destino}\n` +
                 `📅 *Data/Hora:* ${dataFormatada}\n` +
                 `👥 *Passageiros:* Até ${passageiros} pessoa(s)\n` +
                 `🎵 *Preferência:* ${musica}\n\n` +
-                `Por favor, me envie o valor e a confirmação da rota! 🐆`;
+                `Por favor, me envie o valor e a confirmação da rota!`;
 
             const textoCodificado = encodeURIComponent(textoMensagem);
 
-            // Redirecionamento comercial para o WhatsApp de atendimento do Edson
+            // Link com redirecionamento corrigido para o WhatsApp Comercial (31) 98950-0120
             const numeroWhats = "5531989500120"; 
             const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhats}&text=${textoCodificado}`;
 
