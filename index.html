@@ -3,68 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edson Transportes - Cotação BoraUai</title>
+    <title>Edson Transportes - Cotação</title>
     <style>
         :root {
-            --azul-principal: #0F4C81;
-            --laranja-destaque: #FF7A00;
-            --cinza-fundo: #F4F6F9;
-            --texto-escuro: #1A2530;
+            --rosa-pantera: #FF3385; /* Rosa vibrante Pantera */
+            --azul-neon: #00F3FF; /* Azul neon/Ciano luminoso */
+            --fundo-principal: #121212; /* Fundo escuro para o neon brilhar */
+            --fundo-card: #1E1E1E;
+            --texto-principal: #FFFFFF;
+            --texto-secundario: #B3B3B3;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--cinza-fundo);
-            color: var(--texto-escuro);
+            background-color: var(--fundo-principal);
+            color: var(--texto-principal);
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            /* Fundo com leve brilho rosado no centro */
+            background-image: radial-gradient(circle at 50% 0%, #3a1122 0%, #121212 60%);
         }
 
         .container {
             width: 100%;
             max-width: 480px;
-            background: #ffffff;
-            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+            background: var(--fundo-card);
+            border: 1px solid var(--rosa-pantera);
+            box-shadow: 0px 0px 20px rgba(255, 51, 133, 0.3), 0px 0px 10px rgba(0, 243, 255, 0.1);
             border-radius: 16px;
-            margin: 20px 10px;
+            margin: 30px 10px;
             overflow: hidden;
         }
 
         .header {
-            background-color: var(--azul-principal);
+            background-color: var(--rosa-pantera);
             color: #ffffff;
             text-align: center;
             padding: 30px 20px;
-            border-bottom: 5px solid var(--laranja-destaque);
+            border-bottom: 4px solid var(--azul-neon);
+            box-shadow: 0 4px 15px rgba(0, 243, 255, 0.4);
         }
 
         .header h1 {
             margin: 0;
-            font-size: 22pt;
+            font-size: 20pt;
             letter-spacing: 1px;
             text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
 
         .header p {
             margin: 5px 0 0 0;
             font-size: 10pt;
-            opacity: 0.9;
             font-weight: bold;
             letter-spacing: 1.5px;
+            color: #FFF;
         }
 
         .badge-automacao {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 4px 12px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 8pt;
             display: inline-block;
-            margin-top: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            margin-top: 12px;
+            border: 1px solid var(--azul-neon);
+            color: var(--azul-neon);
+            text-shadow: 0 0 8px var(--azul-neon);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
         form {
@@ -80,29 +92,37 @@
             font-weight: bold;
             margin-bottom: 6px;
             font-size: 10.5pt;
-            color: var(--azul-principal);
+            color: var(--rosa-pantera);
+            text-shadow: 0 0 4px rgba(255, 51, 133, 0.4);
         }
 
         input, select {
             width: 100%;
             padding: 12px;
-            border: 2px solid #E2E8F0;
+            background-color: #2A2A2A;
+            border: 2px solid #333;
+            color: #FFF;
             border-radius: 8px;
             font-size: 11pt;
             box-sizing: border-box;
             transition: all 0.3s ease;
         }
 
+        input::placeholder {
+            color: #777;
+        }
+
         input:focus, select:focus {
-            border-color: var(--azul-principal);
+            border-color: var(--azul-neon);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+            box-shadow: 0 0 12px rgba(0, 243, 255, 0.6);
+            background-color: #333;
         }
 
         .btn-enviar {
-            background-color: var(--laranja-destaque);
-            color: white;
-            border: none;
+            background-color: transparent;
+            color: var(--azul-neon);
+            border: 2px solid var(--azul-neon);
             width: 100%;
             padding: 15px;
             font-size: 12pt;
@@ -110,27 +130,37 @@
             border-radius: 8px;
             cursor: pointer;
             text-transform: uppercase;
-            transition: background 0.3s ease;
-            box-shadow: 0px 4px 12px rgba(255, 122, 0, 0.3);
-            margin-top: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0px 0px 10px rgba(0, 243, 255, 0.3), inset 0px 0px 10px rgba(0, 243, 255, 0.2);
+            margin-top: 15px;
+            letter-spacing: 1px;
         }
 
         .btn-enviar:hover {
-            background-color: #E06B00;
+            background-color: var(--azul-neon);
+            color: #000;
+            box-shadow: 0px 0px 20px rgba(0, 243, 255, 0.8);
+            transform: scale(1.02);
         }
 
         .footer {
             text-align: center;
             padding: 20px;
             font-size: 9pt;
-            color: #718096;
-            border-top: 1px solid #EDF2F7;
-            background: #FAFAFA;
+            color: var(--texto-secundario);
+            border-top: 1px solid #333;
+            background: #1A1A1A;
             line-height: 1.6;
         }
 
         .footer strong {
-            color: var(--azul-principal);
+            color: var(--rosa-pantera);
+        }
+
+        .footer .neon-text {
+            color: var(--azul-neon);
+            text-shadow: 0 0 4px rgba(0, 243, 255, 0.5);
+            font-weight: bold;
         }
     </style>
 </head>
@@ -138,9 +168,9 @@
 
     <div class="container">
         <div class="header">
-            <h1>Edson Transportes</h1>
-            <p>Viagens & Soluções Executivas</p>
-            <span class="badge-automacao">🤖 Automação Operacional: BoraUai</span>
+            <h1>🐾 Edson Transportes 🐆</h1>
+            <p>Viagens Executivas • Estilo Pantera</p>
+            <span class="badge-automacao">⚡ Automação Operacional: BoraUai</span>
         </div>
 
         <form id="formCotacao" onsubmit="enviarCotacao(event)">
@@ -180,14 +210,14 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn-enviar">🚖 Enviar Cotação para o WhatsApp</button>
+            <button type="submit" class="btn-enviar">🚖 Enviar Cotação (WhatsApp)</button>
         </form>
 
         <div class="footer">
             Plataforma homologada por <strong>BoraUai Technologies</strong><br>
             <strong>Condutor:</strong> Edson Wagner | CPF: 066.798.886-62<br>
-            <strong>Chave PIX (Celular):</strong> (31) 99526-1120<br>
-            <strong>Contato Comercial:</strong> (31) 98950-0120
+            <span class="neon-text">Chave PIX (Celular):</span> (31) 99526-1120<br>
+            <span class="neon-text">Contato Comercial:</span> (31) 98950-0120
         </div>
     </div>
 
@@ -205,13 +235,13 @@
             const dataFormatada = new Date(dataHoraRaw).toLocaleDateString('pt-BR', dataOpcoes);
 
             const textoMensagem = 
-                `Olá, Edson Wagner! Gostaria de realizar uma cotação de viagem através da plataforma Edson Transportes (BoraUai).\n\n` +
+                `🐾 *Olá, Edson Wagner!* Gostaria de realizar uma cotação de viagem através da plataforma Edson Transportes (Estilo Pantera / BoraUai).\n\n` +
                 `📍 *Origem:* ${origem}\n` +
                 `🏁 *Destino:* ${destino}\n` +
                 `📅 *Data/Hora:* ${dataFormatada}\n` +
                 `👥 *Passageiros:* Até ${passageiros} pessoa(s)\n` +
                 `🎵 *Preferência:* ${musica}\n\n` +
-                `Por favor, me envie o valor e a confirmação da rota!`;
+                `Por favor, me envie o valor e a confirmação da rota! 🐆`;
 
             const textoCodificado = encodeURIComponent(textoMensagem);
 
